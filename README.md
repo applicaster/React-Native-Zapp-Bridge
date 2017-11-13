@@ -10,10 +10,10 @@ Zapp-React-Native-Utils-JS is a util package that allows you to:
 
 ## Installation
 
-`$ npm install --save Zapp-React-Native-Utils-JS`
+`$ npm install --save zapp-react-native-utils-js `
 
 
 ## Usage
 
 * Analytics
-  `import { sendAnalyticEvent } from 'Zapp-React-Native-Utils-JS';`
+  `import { sendAnalyticEvent } from 'zapp-react-native-utils-js';`
