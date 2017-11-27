@@ -1,5 +1,5 @@
 {
-  "name": "zapp-react-native-utils-js",
+  "name": "@applicaster/zapp-react-native-utils-js",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,7 +15,8 @@
   "bugs": {
     "url": "https://github.com/applicaster/Zapp-React-Native-Utils-JS/issues"
   },
-  "homepage": "https://github.com/applicaster/Zapp-React-Native-Utils-JS#readme",
+  "homepage":
+    "https://github.com/applicaster/Zapp-React-Native-Utils-JS#readme",
   "peerDependencies": {
     "react": "^16.0.0-alpha.12",
     "react-native": "^0.47.0"
