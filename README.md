@@ -40,6 +40,10 @@ React-Native-Zapp-Bridge is a util package that enable you to:
   2. create your video view:
   ```javascript
     const streamUrl = `your_stream_url`
+    const style = {
+      backgroundColor: '#ffffff'
+    }
+    const maxWidth = 200;
     let playerDetails = {
       id: `your_item_id`,
       name: `your_item_title`,
@@ -62,7 +66,7 @@ React-Native-Zapp-Bridge is a util package that enable you to:
     return (
       streamUrl ?
         <View>
-          <APVideoPlayer src={src} maxWidth={this.state.componentWidth} />
+          <APVideoPlayer {...{ src, maxwidth, style }} />
         <View />
-    );  
+    );
   ```
