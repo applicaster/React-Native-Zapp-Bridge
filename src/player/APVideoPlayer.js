@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  requireNativeComponent,
-  View,
-  StyleSheet,
-} from 'react-native';
+import { requireNativeComponent, View, StyleSheet } from 'react-native';
 import { getFrameDims } from '../utils/';
 
 const styles = StyleSheet.create({
@@ -42,19 +38,21 @@ const APReactVideoView = {
   },
 };
 
-const ReactVideoView = requireNativeComponent('APReactVideoView', APReactVideoView);
+const ReactVideoView = requireNativeComponent(
+  'APReactVideoView',
+  APReactVideoView,
+);
 
-const APVideoPlayer = ({ src, maxWidth, ratio }) => {
+const APVideoPlayer = ({ src, maxWidth, ratio, style }) => {
   const dims = getFrameDims(maxWidth, ratio);
-  return (
-    <ReactVideoView src={src} style={[dims, styles.video]} />
-  );
+  return <ReactVideoView src={src} style={[dims, styles.video, style]} />;
 };
 
 APVideoPlayer.propTypes = {
   src: PropTypes.object.isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
+  style: PropTypes.object,
 };
 
 APVideoPlayer.defaultProps = {
