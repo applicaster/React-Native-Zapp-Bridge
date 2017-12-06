@@ -1,5 +1,7 @@
 # React Native Zapp Bridge
 
+![](https://img.shields.io/badge/React%20Native-0.47.0-blue.svg)
+
 A React Native package that include bridging from React Native to [Applicaster](http://www.applicaster.com) Zapp Platform native framework.
 
 ## Features
