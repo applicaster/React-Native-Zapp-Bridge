@@ -14,7 +14,7 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 ## Installation
 
-`$ npm install --save react-native-zapp-bridge `
+`$ npm install --save applicaster/react-native-zapp-bridge `
 
 
 ## Usage
