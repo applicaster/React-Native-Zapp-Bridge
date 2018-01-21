@@ -1,4 +1,5 @@
 import { sendAnalyticEvent } from './src/analytics';
 import { APVideoPlayer } from './src/player';
+import { DataSourceService } from './src/datasource/dsService';
 
-export { sendAnalyticEvent, APVideoPlayer };
+export { sendAnalyticEvent, APVideoPlayer, DataSourceService };
