@@ -75,14 +75,14 @@ React-Native-Zapp-Bridge is a util package that enable you to:
     );
   ```
 
-### Video Player
+### Data Source Plugin
   1. import:
   ```javascript
-  import { DataSourceService } from 'react-native-zapp-bridge';
+  import { ZappPipesService } from 'react-native-zapp-bridge';
   ```
   2. make a request:
   ```javascript
-  DataSourceService.getDataSourceData(`Url To Load From DS Plugin`)
+  ZappPipesService.getDataSourceData(`Url To Load From DS Plugin`)
       .then(content)
       .catch(error);
   }
