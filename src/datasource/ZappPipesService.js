@@ -1,4 +1,4 @@
-import ZappPipes from './ZappPipes';
+import APZappPipes from './ZappPipes';
 
 
 export const ZappPipesService =  {
@@ -8,6 +8,6 @@ export const ZappPipesService =  {
     if(!url){
       return Promise.reject(new Error('url is not valid'));
     }
-    return await ZappPipes.get(url);
+    return await APZappPipes.get(url);
   }
 }

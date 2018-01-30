@@ -1,4 +1,4 @@
 import { NativeModules } from 'react-native';
 
-const { ZappPipes } = NativeModules;
-export default ZappPipes;
+const { APZappPipes } = NativeModules;
+export default APZappPipes;
