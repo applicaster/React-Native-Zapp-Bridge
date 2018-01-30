@@ -8,9 +8,11 @@ A React Native package that include bridging from React Native to [Applicaster](
 
 React-Native-Zapp-Bridge is a util package that enable you to:
 
-1. **Analytics** - use `sendAnalyticEvent` to send an analytics event throw [Zapp Morpheus](http://developer-zapp.applicaster.com/analytics/morpheus/morpheus.html) (Zapp Analytics Manager). 
+1. **Analytics** - use `sendAnalyticEvent` to send an analytics event throw [Zapp Morpheus](http://developer-zapp.applicaster.com/analytics/morpheus/morpheus.html) (Zapp Analytics Manager).
 
 2. **Video Player** - use `APVideoPlayer` to add a video player to your React-Native screen, this will add the chosen pluggable player on the Zapp Platform.
+
+3. **Data source plugin** - This class help you to interact with the DS plugin. Use `DataSourceService` to make http request from DS plugin (DS plugin returns Atom model as result).
 
 ## Installation
 
@@ -33,7 +35,7 @@ React-Native-Zapp-Bridge is a util package that enable you to:
       .catch(console.warn);
   }
   ```
-  
+
 ### Video Player
   1. import:
   ```javascript
@@ -71,4 +73,17 @@ React-Native-Zapp-Bridge is a util package that enable you to:
           <APVideoPlayer {...{ src, maxwidth, style }} />
         <View />
     );
+  ```
+
+### Data Source Plugin
+  1. import:
+  ```javascript
+  import { ZappPipesService } from 'react-native-zapp-bridge';
+  ```
+  2. make a request:
+  ```javascript
+  ZappPipesService.getDataSourceData(`Url To Load From DS Plugin`)
+      .then(content)
+      .catch(error);
+  }
   ```

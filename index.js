@@ -1,4 +1,3 @@
-import { sendAnalyticEvent } from './src/analytics';
-import { APVideoPlayer } from './src/player';
-
-export { sendAnalyticEvent, APVideoPlayer };
+export { sendAnalyticEvent } from './src/analytics';
+export { APVideoPlayer } from './src/player';
+export { ZappPipesService } from './src/datasource/ZappPipesService';
