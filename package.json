@@ -8,18 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/applicaster/Zapp-React-Native-Utils-JS.git"
+    "url": "git+https://github.com/applicaster/React-Native-Zapp-Bridge.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/applicaster/Zapp-React-Native-Utils-JS/issues"
+    "url": "https://github.com/applicaster/React-Native-Zapp-Bridge/issues"
   },
-  "homepage":
-    "https://github.com/applicaster/Zapp-React-Native-Utils-JS#readme",
+  "homepage": "https://github.com/applicaster/React-Native-Zapp-Bridge",
   "peerDependencies": {
-    "react": "^16.0.0-alpha.12",
-    "react-native": "^0.47.0"
+    "react": "^16.2.0",
+    "react-native": "^0.50.4"
   },
   "dependencies": {
     "ramda": "^0.25.0"
