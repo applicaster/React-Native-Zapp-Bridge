@@ -15,8 +15,7 @@
   "bugs": {
     "url": "https://github.com/applicaster/Zapp-React-Native-Utils-JS/issues"
   },
-  "homepage":
-    "https://github.com/applicaster/Zapp-React-Native-Utils-JS#readme",
+  "homepage": "https://github.com/applicaster/Zapp-React-Native-Utils-JS#readme",
   "peerDependencies": {
     "react": "^16.0.0",
     "react-native": "^0.50.4"
