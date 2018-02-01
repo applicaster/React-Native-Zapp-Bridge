@@ -8,7 +8,7 @@ const s4 = () =>
 const guid = () => `${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}`;
 
 
-export const sendAnalyticEvent = (key, properties, shouldStringifyValue = true) => {
+export const sendAnalyticEvent = (key, properties = {}, shouldStringifyValue = true) => {
   let event = {
     key,
     properties,
