@@ -103,10 +103,10 @@ Promise - resolves:
 
 3. login user
 ```javascript
-NativeModules.ZappLogin.login(params);
+NativeModules.ZappLogin.login(additionalParams);
 ```
 parameters:
-`params: Object`
+`additionalParams: Object` - can be empty
 
 Returns:
 Promise - resolves:
@@ -124,7 +124,7 @@ NativeModules.ZappPlayer.playFullScreen(type, playable, configuration);
 parameters:
 `type: String`
 `playable: Object`
-`configuration: Object`
+`configuration: Object` - can be empty
 
 Returns:
 Promise - resolves:
