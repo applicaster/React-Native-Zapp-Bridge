@@ -87,3 +87,45 @@ React-Native-Zapp-Bridge is a util package that enable you to:
       .catch(error);
   }
   ```
+
+### Zapp login
+1. import:
+```javascript
+import { NativeModules } from 'react-native';
+```
+2. check if user is logged in
+```javascript
+NativeModules.ZappLogin.isUserLoggedIn();
+```
+Returns:
+Promise - resolves:
+`{ isUserLoggedIn: bool }`
+
+3. login user
+```javascript
+NativeModules.ZappLogin.login(params);
+```
+parameters:
+`params: Object`
+
+Returns:
+Promise - resolves:
+`{ isUserLoggedIn: bool }`
+
+### Zapp player
+1. import:
+```javascript
+import { NativeModules } from 'react-native';
+```
+2. call player
+```javascript
+NativeModules.ZappPlayer.playFullScreen(type, playable, configuration);
+```
+parameters:
+`type: String`
+`playable: Object`
+`configuration: Object`
+
+Returns:
+Promise - resolves:
+`true`
