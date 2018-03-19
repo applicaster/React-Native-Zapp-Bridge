@@ -129,3 +129,20 @@ parameters:
 Returns:
 Promise - resolves:
 `true`
+
+### Plugin configuration
+1. import:
+```javascript
+import { NativeModules } from 'react-native';
+```
+2. get custom configuration
+```javascript
+NativeModules.APPluginBridge.getConfiguration(identifier);
+```
+
+parameters:
+`identifier: String`
+
+Returns:
+Promise - resolves:
+`{ key1: "value", key2: "value2"}`
