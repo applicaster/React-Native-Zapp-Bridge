@@ -137,7 +137,7 @@ import { NativeModules } from 'react-native';
 ```
 2. get custom configuration
 ```javascript
-NativeModules.APPluginBridge.getConfiguration(identifier);
+NativeModules.ZappPlugin.getConfiguration(identifier);
 ```
 
 parameters:
