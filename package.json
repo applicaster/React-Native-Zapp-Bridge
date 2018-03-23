@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -24,13 +25,26 @@
     "ramda": "^0.25.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-react-native": "^1.9.1",
+    "babel-register": "^6.18.0",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-es-beautifier": "^1.0.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-jest": "^21.12.1",
     "eslint-plugin-react": "^7.4.0",
-    "eslint-plugin-react-native": "^3.1.0"
+    "eslint-plugin-react-native": "^3.1.0",
+    "jest": "^21.2.1",
+    "jest-cli": "^21.2.1",
+    "react": "^16.2.0",
+    "react-native": "^0.50.4"
+  },
+  "jest": {
+    "verbose": true,
+    "preset": "react-native"
   }
 }

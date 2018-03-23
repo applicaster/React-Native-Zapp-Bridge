@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reminders addReminder({ id, channel_id, starts_at, ends_at, name }) it will add a program reminder 1`] = `
+Array [
+  Array [
+    Object {
+      "channel_id": "222",
+      "ends_at": "2016-12-20T15:00:00+00:00",
+      "id": "111",
+      "name": "Britain's Got the Pop Factor",
+      "starts_at": "2016-12-20T14:00:00+00:00",
+    },
+  ],
+]
+`;
+
+exports[`reminders hasReminder(programId) it will check a program reminder 1`] = `
+Array [
+  Array [
+    "111",
+  ],
+]
+`;
+
+exports[`reminders removeReminder(programId) it will remove a program reminder 1`] = `
+Array [
+  Array [
+    "111",
+  ],
+]
+`;

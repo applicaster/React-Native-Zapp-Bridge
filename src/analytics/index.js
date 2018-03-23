@@ -4,22 +4,28 @@ import { postEvent } from './analytics';
 const getIp = () =>
   fetch('https://api.ipify.org?format=json').then(r => r.json());
 const s4 = () =>
-  Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
 const guid = () => `${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}`;
 
-
-export const sendAnalyticEvent = (key, properties = {}, shouldStringifyValue = true) => {
+export const sendAnalyticEvent = (
+  key,
+  properties = {},
+  shouldStringifyValue = true
+) => {
+  /* eslint no-console: 0 */
   let event = {
     key,
     properties,
     id: properties.uuid || guid(),
-    timestamp: Math.floor(Date.now() / 1000),
+    timestamp: Math.floor(Date.now() / 1000)
   };
   if (shouldStringifyValue) {
     event = JSON.stringify(event);
   }
   const options = {
-    event,
+    event
   };
 
   return getIp()
