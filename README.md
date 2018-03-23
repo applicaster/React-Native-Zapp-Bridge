@@ -12,7 +12,9 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 2. **Video Player** - use `APVideoPlayer` to add a video player to your React-Native screen, this will add the chosen pluggable player on the Zapp Platform.
 
-3. **Data source plugin** - This class help you to interact with the DS plugin. Use `DataSourceService` to make http request from DS plugin (DS plugin returns Atom model as result).
+3. **Data source plugin** - This class helps you to interact with the DS plugin. Use `DataSourceService` to make http request from DS plugin (DS plugin returns Atom model as result).
+
+4. **reminders** - An API for adding, removing & checking status of program reminders.
 
 ## Installation
 
@@ -129,3 +131,27 @@ parameters:
 Returns:
 Promise - resolves:
 `true`
+
+### Reminders
+1. import:
+```javascript
+import { reminders } from 'react-native-zapp-bridge';
+```
+2. methods:
+```
+reminders.addReminder({
+  id: PROGRAM_ID_STR,
+  channel_id: CHANNEL_ID_STR,
+  starts_at: '2016-12-20T14:00:00+00:00',
+  ends_at: '2016-12-20T15:00:00+00:00',
+  name: PROGRAM_NAME_STR
+}).then(PROGRAM_ID_STR => {
+  // success
+});
+reminders.removeReminder(PROGRAM_ID).then(PROGRAM_ID_STR => {
+  // success
+});
+reminders.hasReminder(PROGRAM_ID).then(RESULT_BOOL => {
+  // success
+});
+```
