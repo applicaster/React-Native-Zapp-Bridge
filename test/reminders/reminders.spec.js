@@ -37,7 +37,7 @@ describe('reminders', () => {
 
   describe('removeReminder(programId)', () => {
     it('it will remove a program reminder', () => {
-      removeReminder(111);
+      removeReminder('111');
 
       expect(addProgramReminderMock.mock.calls.length).toBe(0);
       expect(removeProgramReminderMock.mock.calls).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe('reminders', () => {
 
   describe('hasReminder(programId)', () => {
     it('it will check a program reminder', () => {
-      hasReminder(111);
+      hasReminder('111');
 
       expect(addProgramReminderMock.mock.calls.length).toBe(0);
       expect(removeProgramReminderMock.mock.calls.length).toBe(0);

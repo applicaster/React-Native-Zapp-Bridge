@@ -7,37 +7,29 @@ const warn = method => {
   );
 };
 
-const addReminder = program => {
-  if (NativeModules && NativeModules.Reminders) {
-    NativeModules.Reminders.addProgramReminder(program);
-  }
-
-  warn('addProgramReminder');
-  return Promise.reject(new Error('failed to find Reminders native module'));
+const methodMapping = {
+  addReminder: 'addProgramReminder',
+  removeReminder: 'removeProgramReminder',
+  hasReminder: 'isProgramReminderScheduled'
 };
 
-const removeReminder = id => {
-  if (NativeModules && NativeModules.Reminders) {
-    NativeModules.Reminders.removeProgramReminder(id.toString());
-  }
+const exports = Object.assign(
+  {},
+  ...Object.keys(methodMapping).map(k => ({
+    [k]: (...args) => {
+      const nativeMethodName = methodMapping[k];
+      if (NativeModules && NativeModules.Reminders) {
+        return NativeModules.Reminders[nativeMethodName](...args);
+      }
 
-  warn('removeProgramReminder');
-  return Promise.reject(new Error('failed to find Reminders native module'));
-};
+      warn(nativeMethodName);
 
-const hasReminder = id => {
-  if (NativeModules && NativeModules.Reminders) {
-    return NativeModules.Reminders.isProgramReminderScheduled(id.toString());
-  }
+      return Promise.reject(
+        new Error('failed to find Reminders native module')
+      );
+    }
+  }))
+);
 
-  warn('isProgramReminderScheduled');
-  return Promise.reject(new Error('failed to find Reminders native module'));
-};
-
-export { addReminder, removeReminder, hasReminder };
-
-export default {
-  addReminder,
-  removeReminder,
-  hasReminder
-};
+export const { addReminder, removeReminder, hasReminder } = exports;
+export default { ...exports };
