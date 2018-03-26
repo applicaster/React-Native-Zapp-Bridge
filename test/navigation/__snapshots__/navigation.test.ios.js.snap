@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils closeModalScreen() calls the correct native method on iOS 1`] = `
+Array [
+  Array [
+    "dismiss_modal_view",
+    Object {
+      "animated": 1,
+    },
+    [Function],
+  ],
+]
+`;
+
+exports[`utils openInternalURL(params, reactParams = {}) will call native module with correct URL 1`] = `
+Array [
+  Array [
+    "SOME_PROTOCOL://presentRN?bundle=SingleChannelEPG&plugin=SingleChannelEPG&presentation=presentNoNavigation&channelId=reactProps%5BchannelId%5D&channelTitle=reactProps%5BchannelTitle%5D",
+  ],
+]
+`;

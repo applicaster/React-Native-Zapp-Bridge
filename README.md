@@ -16,6 +16,8 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 4. **reminders** - An API for adding, removing & checking status of program reminders.
 
+4. **navigation** - An API for navigating within Zapp apps.
+
 ## Installation
 
 `$ npm install --save applicaster/react-native-zapp-bridge `
@@ -154,4 +156,15 @@ reminders.removeReminder(PROGRAM_ID).then(PROGRAM_ID_STR => {
 reminders.hasReminder(PROGRAM_ID).then(RESULT_BOOL => {
   // success
 });
+```
+
+### Navigation
+1. import:
+```javascript
+import { navigation } from 'react-native-zapp-bridge';
+```
+2. methods:
+```
+navigation.closeModalScreen();
+reminders.openInternalURL(params, reactParams);
 ```
