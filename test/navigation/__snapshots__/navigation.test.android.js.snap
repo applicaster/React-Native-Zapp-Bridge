@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`navigation closeModalScreen() calls the correct native method on android 1`] = `
+Array [
+  Array [
+    "stop",
+    Object {},
+  ],
+]
+`;
+
+exports[`navigation openInternalURL(params, reactParams = {}) will call native module with correct URL 1`] = `
+Array [
+  Array [
+    "[object Object]://presentRN?channelId=xxx&channelTitle=BBC 4",
+  ],
+]
+`;
