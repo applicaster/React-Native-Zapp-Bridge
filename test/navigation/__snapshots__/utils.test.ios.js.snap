@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils closeModalScreen() calls the correct native method on iOS 1`] = `
+Array [
+  Array [
+    "dismiss_modal_view",
+    Object {
+      "animated": 1,
+    },
+    [Function],
+  ],
+]
+`;

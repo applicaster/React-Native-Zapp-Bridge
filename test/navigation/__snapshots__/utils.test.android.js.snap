@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils closeModalScreen() calls the correct native method on android 1`] = `
+Array [
+  Array [
+    "stop",
+    Object {},
+  ],
+]
+`;
