@@ -1,5 +1,16 @@
-machine:
-  node:
-    version: 8.9.0
-  post:
-    - npm install -g npm
+version: 2
+jobs:
+  build:
+    docker:
+      - image: applicaster/zapp:0.8
+    steps:
+      - checkout
+      - run:
+        name: Install javascript dependencies
+        command: npm i
+      - run:
+        name: Linting - javascript
+        command: npm run lint
+      - run:
+        name: Javascript tests
+        command: npm t
