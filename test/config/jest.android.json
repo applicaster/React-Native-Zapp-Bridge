@@ -1,0 +1,13 @@
+{
+  "verbose": true,
+  "preset": "react-native",
+  "testMatch": ["**/*.spec.android.js"],
+  "rootDir": "./../../",
+  "transformIgnorePatterns": ["node_modules/(?!(react-native)/)"],
+  "haste": {
+    "defaultPlatform": "android",
+    "platforms": ["android"],
+    "providesModuleNodeModules": ["react-native"],
+    "moduleFileExtensions": ["android.js", "js", "json"]
+  }
+}

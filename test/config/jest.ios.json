@@ -1,0 +1,13 @@
+{
+  "verbose": true,
+  "preset": "react-native",
+  "testMatch": ["**/*.spec.ios.js"],
+  "rootDir": "./../../",
+  "transformIgnorePatterns": ["node_modules/(?!(react-native)/)"],
+  "haste": {
+    "defaultPlatform": "ios",
+    "platforms": ["ios"],
+    "providesModuleNodeModules": ["react-native"],
+    "moduleFileExtensions": ["ios.js", "js", "json"]
+  }
+}
