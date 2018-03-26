@@ -5,9 +5,18 @@ jobs:
       - image: applicaster/zapp:0.8
     steps:
       - checkout
+      - restore_cache:
+        keys:
+          - npm-{{ checksum "package-lock.json" }}
+          - npm-v1
       - run:
           name: Install javascript dependencies
           command: npm i
+      - save_cache:
+          key: npm-{{ checksum "package-lock.json" }}
+          paths:
+            - "~/.npm-cache"
+            - node_modules
       - run:
           name: Linting - javascript
           command: npm run lint
