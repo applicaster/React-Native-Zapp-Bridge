@@ -5,8 +5,8 @@ import { getFrameDims } from '../utils/';
 
 const styles = StyleSheet.create({
   video: {
-    backgroundColor: '#000000',
-  },
+    backgroundColor: '#000000'
+  }
 });
 
 const APReactVideoView = {
@@ -21,26 +21,26 @@ const APReactVideoView = {
             id: PropTypes.string,
             name: PropTypes.string,
             thumbnail_url: PropTypes.string,
-            stream_url: PropTypes.string,
-          }),
-        }),
+            stream_url: PropTypes.string
+          })
+        })
       ]),
       player_configuration: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.shape({
-          inline_player_should_auto_mute: PropTypes.boolean,
-        }),
+          inline_player_should_auto_mute: PropTypes.boolean
+        })
       ]),
-      startTime: PropTypes.string,
+      startTime: PropTypes.string
     }),
     maxWidth: PropTypes.string,
-    ...View.propTypes,
-  },
+    ...View.propTypes
+  }
 };
 
 const ReactVideoView = requireNativeComponent(
   'APReactVideoView',
-  APReactVideoView,
+  APReactVideoView
 );
 
 const APVideoPlayer = ({ src, maxWidth, ratio, style }) => {
@@ -52,12 +52,12 @@ APVideoPlayer.propTypes = {
   src: PropTypes.object.isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
-  style: PropTypes.object,
+  style: PropTypes.object
 };
 
 APVideoPlayer.defaultProps = {
   maxWidth: null,
-  ratio: 9 / 16,
+  ratio: 9 / 16
 };
 
 export default APVideoPlayer;

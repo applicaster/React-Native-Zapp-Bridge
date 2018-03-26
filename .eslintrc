@@ -1,45 +1,34 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true,
-    "jest": true
-  },
-  "plugins":[
-    "babel",
-    "react",
-    "react-native",
-    "es-beautifier"
-  ],
-  "extends": [
-    "airbnb",
-    "plugin:es-beautifier/standard"
-  ],
+  "plugins": ["babel", "react", "react-native", "jest"],
+  "extends": ["airbnb-base", "plugin:react/recommended"],
+  "globals": {"fetch": false},
   "rules": {
-    "react/no-unescaped-entities": 0,
-    "react/jsx-filename-extension": 0,
-    "react/jsx-curly-spacing": 0,
     "import/no-extraneous-dependencies": 0,
-    "global-require": 0,
-    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
-    "max-len": ["error", 121],
-    "arrow-parens": 0,
-    "template-curly-spacing": 0,
-    "no-confusing-arrow": 0,
-    "es-beautifier/jsx-multiline-elements": 0,
     "import/prefer-default-export": 0,
-    "react/forbid-prop-types": 0,
+    "object-curly-newline": 0,
+    "function-paren-newline": 0,
+    "camelcase": 1,
+    "arrow-parens": 0,
+    "react/jsx-filename-extension": 0,
+    "react/no-unescaped-entities": 0,
     "class-methods-use-this": 0,
-    "es-beautifier/jsx-separateline-literals": 0,
-    "es-beautifier/jsx-multiline-attributes": 0,
-    "react/jsx-first-prop-new-line": 0,
-    "es-beautifier/multiline-object-properties": 0
+    "comma-dangle": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".ios.js", ".android.js"]
+        "extensions": [".js", ".android.js", ".ios.js"]
       }
     }
+  },
+  "env": {
+    "jest/globals": true
   }
 }
