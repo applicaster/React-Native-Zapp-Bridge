@@ -1,0 +1,5 @@
+machine:
+  node:
+    version: 8.9.0
+  post:
+    - npm install -g npm
