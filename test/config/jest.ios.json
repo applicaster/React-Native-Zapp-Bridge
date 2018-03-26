@@ -1,7 +1,7 @@
 {
   "verbose": true,
   "preset": "react-native",
-  "testMatch": ["**/*.spec.ios.js"],
+  "testMatch": ["**/*.test.ios.js"],
   "rootDir": "./../../",
   "transformIgnorePatterns": ["node_modules/(?!(react-native)/)"],
   "haste": {

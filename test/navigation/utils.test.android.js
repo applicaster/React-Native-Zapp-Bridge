@@ -1,5 +1,5 @@
 import { NativeModules } from 'react-native';
-import { closeModalScreen } from '../../src/utils';
+import { closeModalScreen } from '../../src/navigation';
 
 describe('utils', () => {
   describe('closeModalScreen()', () => {
