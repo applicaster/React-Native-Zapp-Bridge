@@ -6,9 +6,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - npm-{{ checksum "package-lock.json" }}
-          - npm-v1
+          keys:
+            - npm-{{ checksum "package-lock.json" }}
+            - npm-v1
       - run:
           name: Install javascript dependencies
           command: npm i
