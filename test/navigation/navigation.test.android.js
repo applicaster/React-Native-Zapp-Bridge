@@ -33,6 +33,7 @@ describe('navigation', () => {
 
     it('will call native module with correct URL', () => {
       openInternalURL(
+        'SOME_PROTOCOL',
         {
           bundle: 'SingleChannelEPG',
           plugin: 'SingleChannelEPG',
