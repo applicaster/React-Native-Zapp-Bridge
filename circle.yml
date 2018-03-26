@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install javascript dependencies
-        command: npm i
+          name: Install javascript dependencies
+          command: npm i
       - run:
-        name: Linting - javascript
-        command: npm run lint
+          name: Linting - javascript
+          command: npm run lint
       - run:
-        name: Javascript tests
-        command: npm t
+          name: Javascript tests
+          command: npm t
