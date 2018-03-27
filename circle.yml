@@ -2,6 +2,20 @@ defaults: &defaults
   docker:
     - image: applicaster/zapp:0.8
 
+whitelist: &whitelist
+  paths:
+    - .npmignore
+    - coverage/*
+    - dist/*
+    - node_modules/*
+    - src/*
+    - LICENSE
+    - package.json
+    - package-lock.json
+    - README.md
+    - .eslintrc
+    - .babelrc
+
 version: 2
 jobs:
   build:
@@ -38,6 +52,7 @@ jobs:
 
       - persist_to_workspace:
           root: ~/repo
+          <<: *whitelist
 
       - run:
           name: Linting - javascript
