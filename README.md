@@ -181,3 +181,7 @@ footer?
 
 Types can be one of the following:
 \[build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test\]\[type-enum\]
+
+## Continuous deployment
+
+Deployment is automated by [Semantic Release](https://github.com/semantic-release/semantic-release). When PRs are merged to `master` Semantic Release will analyse the commit log, increment version, tag a release and publish directly to public NPM. 
