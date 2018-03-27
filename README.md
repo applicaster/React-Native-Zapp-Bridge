@@ -169,3 +169,15 @@ import { navigation } from 'react-native-zapp-bridge';
 navigation.closeModalScreen();
 reminders.openInternalURL(params, reactParams);
 ```
+## Contributing
+
+Commit messages are strictly enforced in this pattern:
+
+```
+type(scope?): subject
+body?
+footer?
+```
+
+Types can be one of the following:
+\[build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test\]\[type-enum\]
