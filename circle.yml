@@ -1,12 +1,10 @@
 defaults: &defaults
+  working_directory: ~/repo
   docker:
     - image: applicaster/zapp:0.8
 
 whitelist: &whitelist
   paths:
-    - .npmignore
-    - coverage/*
-    - dist/*
     - node_modules/*
     - src/*
     - LICENSE
