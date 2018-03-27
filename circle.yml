@@ -1,8 +1,11 @@
+defaults: &defaults
+  docker:
+    - image: applicaster/zapp:0.8
+
 version: 2
 jobs:
   build:
-    docker:
-      - image: applicaster/zapp:0.8
+    <<: *defaults
     steps:
       - restore_cache:
           key: react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
@@ -10,26 +13,53 @@ jobs:
             - react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
             - react-native-zapp-bridge-{{ .Branch }}-
             - react-native-zapp-bridge-
+
       - checkout
+
       - save_cache:
           key: react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
           paths:
             - ".git"
+
       - restore_cache:
           keys:
             - npm-{{ checksum "package-lock.json" }}
             - npm
+
       - run:
           name: Install javascript dependencies
           command: npm i
+
       - save_cache:
           key: npm-{{ checksum "package-lock.json" }}
           paths:
             - "~/.npm"
             - node_modules
+
       - run:
           name: Linting - javascript
           command: npm run lint
+
       - run:
           name: Javascript tests
           command: npm t
+
+  deploy:
+    <<: *defaults
+
+    steps:
+      - run:
+          name: Write NPM Token to ~/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+      - run:
+          name: Install dot-json package
+          command: npm install dot-json
+
+      - run:
+          name: Write version to package.json
+          command: $(npm bin)/dot-json package.json version ${CIRCLE_TAG:1}
+
+      - run:
+          name: Publish to NPM
+          command: npm publish --access=public
