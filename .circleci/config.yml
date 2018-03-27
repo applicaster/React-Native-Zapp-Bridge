@@ -20,30 +20,30 @@ jobs:
     <<: *defaults
     steps:
       - restore_cache:
-          key: react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
+          key: v1-react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
           keys:
-            - react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
-            - react-native-zapp-bridge-{{ .Branch }}-
-            - react-native-zapp-bridge-
+            - v1-react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
+            - v1-react-native-zapp-bridge-{{ .Branch }}-
+            - v1-react-native-zapp-bridge-
 
       - checkout
 
       - save_cache:
-          key: react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
+          key: v1-react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
           paths:
             - ".git"
 
       - restore_cache:
           keys:
-            - npm-{{ checksum "package-lock.json" }}
-            - npm
+            - v1-npm-{{ checksum "package-lock.json" }}
+            - v1-npm
 
       - run:
           name: Install javascript dependencies
           command: npm i
 
       - save_cache:
-          key: npm-{{ checksum "package-lock.json" }}
+          key: v1-npm-{{ checksum "package-lock.json" }}
           paths:
             - "~/.npm"
             - node_modules
