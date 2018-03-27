@@ -81,4 +81,4 @@ workflows:
             - build
           filters:
             branches:
-              only: feature/circle-ci-npm-deploy
+              only: feat/circle-ci-npm-deploy
