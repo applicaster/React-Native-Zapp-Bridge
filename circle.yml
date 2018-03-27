@@ -1,8 +1,23 @@
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: applicaster/zapp:0.8
+
+whitelist: &whitelist
+  paths:
+    - node_modules/*
+    - src/*
+    - LICENSE
+    - package.json
+    - package-lock.json
+    - README.md
+    - .eslintrc
+    - .babelrc
+
 version: 2
 jobs:
   build:
-    docker:
-      - image: applicaster/zapp:0.8
+    <<: *defaults
     steps:
       - restore_cache:
           key: react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
@@ -10,26 +25,60 @@ jobs:
             - react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
             - react-native-zapp-bridge-{{ .Branch }}-
             - react-native-zapp-bridge-
+
       - checkout
+
       - save_cache:
           key: react-native-zapp-bridge-{{ .Branch }}-{{ .Revision }}
           paths:
             - ".git"
+
       - restore_cache:
           keys:
             - npm-{{ checksum "package-lock.json" }}
             - npm
+
       - run:
           name: Install javascript dependencies
           command: npm i
+
       - save_cache:
           key: npm-{{ checksum "package-lock.json" }}
           paths:
             - "~/.npm"
             - node_modules
+
+      - persist_to_workspace:
+          root: ~/repo
+          <<: *whitelist
+
       - run:
           name: Linting - javascript
           command: npm run lint
+
       - run:
           name: Javascript tests
           command: npm t
+
+  deploy:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+
+      - run:
+          name: Semantic release
+          command: npx semantic-release --dry-run
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: feat/circle-ci-npm-deploy
