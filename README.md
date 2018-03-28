@@ -169,3 +169,19 @@ import { navigation } from 'react-native-zapp-bridge';
 navigation.closeModalScreen();
 reminders.openInternalURL(params, reactParams);
 ```
+## Contributing
+
+Commit messages are strictly enforced in this pattern:
+
+```
+type(scope?): subject
+body?
+footer?
+```
+
+Types can be one of the following:
+\[build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test\]\[type-enum\]
+
+## Continuous deployment
+
+Deployment is automated by [Semantic Release](https://github.com/semantic-release/semantic-release). When PRs are merged to `master` Semantic Release will analyse the commit log, increment version, tag a release and publish directly to public NPM. 
