@@ -1,5 +1,6 @@
 # React Native Zapp Bridge
 
+[![npm version](https://badge.fury.io/js/react-native-zapp-bridge.svg)](https://badge.fury.io/js/react-native-zapp-bridge)
 ![](https://img.shields.io/badge/React%20Native-0.50.4-blue.svg)
 [![CircleCI](https://circleci.com/gh/applicaster/React-Native-Zapp-Bridge.svg?style=svg)](https://circleci.com/gh/applicaster/React-Native-Zapp-Bridge)
 
