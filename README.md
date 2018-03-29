@@ -152,11 +152,16 @@ reminders.addReminder({
 }).then(PROGRAM_ID_STR => {
   // success
 });
-reminders.removeReminder(PROGRAM_ID).then(PROGRAM_ID_STR => {
+reminders.removeReminder(PROGRAM_ID_STR).then(PROGRAM_ID_STR => {
   // success
 });
-reminders.hasReminder(PROGRAM_ID).then(RESULT_BOOL => {
+reminders.hasReminder(PROGRAM_ID_STR).then(RESULT_BOOL => {
   // success
+});
+reminders.checkReminders(PROGRAM_ID_STR_ARR).then(RESULT_OBJ => {
+  // success
+  // result object should look like:
+  // { PROGRAM_ID: REMINDER_SET_BOOL, ... } 
 });
 ```
 
