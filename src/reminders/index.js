@@ -10,7 +10,8 @@ const warn = method => {
 const methodMapping = {
   addReminder: 'addProgramReminder',
   removeReminder: 'removeProgramReminder',
-  hasReminder: 'isProgramReminderScheduled'
+  hasReminder: 'isProgramReminderScheduled',
+  checkReminders: 'areProgramRemindersScheduled'
 };
 
 const exports = Object.assign(
