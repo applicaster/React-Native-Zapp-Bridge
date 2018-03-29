@@ -11,6 +11,7 @@ whitelist: &whitelist
     - package.json
     - package-lock.json
     - README.md
+    - index.js
     - .eslintrc
     - .babelrc
     - .git
