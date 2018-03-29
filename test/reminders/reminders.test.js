@@ -1,20 +1,28 @@
 import { NativeModules } from 'react-native';
 
-import { addReminder, removeReminder, hasReminder } from '../../src/reminders';
+import {
+  addReminder,
+  removeReminder,
+  hasReminder,
+  checkReminders
+} from '../../src/reminders';
 
 let addProgramReminderMock;
 let removeProgramReminderMock;
 let isProgramReminderScheduledMock;
+let areProgramRemindersScheduledMock;
 
 beforeEach(() => {
   addProgramReminderMock = jest.fn();
   removeProgramReminderMock = jest.fn();
   isProgramReminderScheduledMock = jest.fn();
+  areProgramRemindersScheduledMock = jest.fn();
 
   NativeModules.Reminders = {
     addProgramReminder: addProgramReminderMock,
     removeProgramReminder: removeProgramReminderMock,
-    isProgramReminderScheduled: isProgramReminderScheduledMock
+    isProgramReminderScheduled: isProgramReminderScheduledMock,
+    areProgramRemindersScheduled: areProgramRemindersScheduledMock
   };
 });
 
@@ -32,6 +40,7 @@ describe('reminders', () => {
       expect(addProgramReminderMock.mock.calls).toMatchSnapshot();
       expect(removeProgramReminderMock.mock.calls.length).toBe(0);
       expect(isProgramReminderScheduledMock.mock.calls.length).toBe(0);
+      expect(areProgramRemindersScheduledMock.mock.calls.length).toBe(0);
     });
   });
 
@@ -42,6 +51,7 @@ describe('reminders', () => {
       expect(addProgramReminderMock.mock.calls.length).toBe(0);
       expect(removeProgramReminderMock.mock.calls).toMatchSnapshot();
       expect(isProgramReminderScheduledMock.mock.calls.length).toBe(0);
+      expect(areProgramRemindersScheduledMock.mock.calls.length).toBe(0);
     });
   });
 
@@ -52,6 +62,18 @@ describe('reminders', () => {
       expect(addProgramReminderMock.mock.calls.length).toBe(0);
       expect(removeProgramReminderMock.mock.calls.length).toBe(0);
       expect(isProgramReminderScheduledMock.mock.calls).toMatchSnapshot();
+      expect(areProgramRemindersScheduledMock.mock.calls.length).toBe(0);
+    });
+  });
+
+  describe('checkReminders(programIdsArr)', () => {
+    it('it will check a program reminder', () => {
+      checkReminders(['111', '222', '333']);
+
+      expect(addProgramReminderMock.mock.calls.length).toBe(0);
+      expect(removeProgramReminderMock.mock.calls.length).toBe(0);
+      expect(isProgramReminderScheduledMock.mock.calls.length).toBe(0);
+      expect(areProgramRemindersScheduledMock.mock.calls).toMatchSnapshot();
     });
   });
 });

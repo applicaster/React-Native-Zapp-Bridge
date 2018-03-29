@@ -32,5 +32,10 @@ const exports = Object.assign(
   }))
 );
 
-export const { addReminder, removeReminder, hasReminder } = exports;
+export const {
+  addReminder,
+  removeReminder,
+  hasReminder,
+  checkReminders
+} = exports;
 export default { ...exports };
