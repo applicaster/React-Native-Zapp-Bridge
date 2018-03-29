@@ -14,6 +14,18 @@ Array [
 ]
 `;
 
+exports[`reminders checkReminders(programIdsArr) it will check a program reminder 1`] = `
+Array [
+  Array [
+    Array [
+      "111",
+      "222",
+      "333",
+    ],
+  ],
+]
+`;
+
 exports[`reminders hasReminder(programId) it will check a program reminder 1`] = `
 Array [
   Array [
