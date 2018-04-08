@@ -132,7 +132,7 @@ parameters:
 `playable: Object`
 `configuration: Object` - can be empty
 
-Supported value for `configuration` keys:
+Supported values for `configuration` keys:
 - `configuration['custom_configuration']` - This value is being delivered to the player plug as the player configuration dictionary.
 
 Returns:
