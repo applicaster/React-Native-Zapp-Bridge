@@ -112,7 +112,7 @@ Promise - resolves:
 NativeModules.ZappLogin.login(additionalParams);
 ```
 parameters:
-`additionalParams: Object` - can be empty
+`additionalParams: Object` - can be empty. This parameter is being delieved as the additionalParams to the native login method. So any values in this object will be available to the receiver login plugin.
 
 Returns:
 Promise - resolves:
