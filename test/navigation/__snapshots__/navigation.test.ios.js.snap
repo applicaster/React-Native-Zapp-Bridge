@@ -6,6 +6,7 @@ Array [
     "dismiss_modal_view",
     Object {
       "animated": 1,
+      "animation_type": undefined,
     },
     [Function],
   ],

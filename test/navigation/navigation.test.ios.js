@@ -18,6 +18,17 @@ describe('utils', () => {
 
       expect(iosCloseMethod.mock.calls).toMatchSnapshot();
     });
+
+    it('passes parameters to the iOS bridge call', () => {
+      const params = {
+        animated: 3,
+        animation_type: 'push'
+      };
+
+      closeModalScreen(params);
+
+      expect(iosCloseMethod.mock.calls[0][1]).toEqual(params);
+    });
   });
 
   describe('openInternalURL(params, reactParams = {})', () => {

@@ -8,18 +8,19 @@ const buildQueryString = (params, unencoded) => {
     .join('&');
 };
 
-export const closeModalScreen = Platform.select({
-  android: () => {
-    NativeModules.APReactNativeBridge.handleCommand('stop', {});
-  },
-  ios: () => {
-    NativeModules.ZPReactNativeBridgeListener.postEvent(
-      'dismiss_modal_view',
-      { animated: 1 },
-      () => {}
-    );
-  }
-});
+export const closeModalScreen = ({ animation_type, animated = 1 } = {}) =>
+  Platform.select({
+    android: () => {
+      NativeModules.APReactNativeBridge.handleCommand('stop', {});
+    },
+    ios: () => {
+      NativeModules.ZPReactNativeBridgeListener.postEvent(
+        'dismiss_modal_view',
+        { animated, animation_type },
+        () => {}
+      );
+    }
+  })();
 
 export const openInternalURL = (protocol, params, reactParams = {}) => {
   const mergedParams = Object.assign(
