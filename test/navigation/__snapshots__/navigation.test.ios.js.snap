@@ -13,6 +13,19 @@ Array [
 ]
 `;
 
+exports[`utils closeModalScreen() passes parameters to the iOS bridge call 1`] = `
+Array [
+  Array [
+    "dismiss_modal_view",
+    Object {
+      "animated": 3,
+      "animation_type": "push",
+    },
+    [Function],
+  ],
+]
+`;
+
 exports[`utils openInternalURL(params, reactParams = {}) will call native module with correct URL 1`] = `
 Array [
   Array [

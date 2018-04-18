@@ -27,7 +27,7 @@ describe('utils', () => {
 
       closeModalScreen(params);
 
-      expect(iosCloseMethod.mock.calls[0][1]).toEqual(params);
+      expect(iosCloseMethod.mock.calls).toMatchSnapshot();
     });
   });
 
