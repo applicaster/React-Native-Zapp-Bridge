@@ -27,7 +27,11 @@ describe('utils', () => {
 
       closeModalScreen(params);
 
-      expect(iosCloseMethod.mock.calls).toMatchSnapshot();
+      expect(iosCloseMethod).toBeCalledWith(
+        'dismiss_modal_view',
+        params,
+        expect.any(Function)
+      );
     });
   });
 
