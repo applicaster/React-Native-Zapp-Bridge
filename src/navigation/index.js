@@ -12,10 +12,10 @@ export const closeModalScreen = Platform.select({
   android: () => {
     NativeModules.APReactNativeBridge.handleCommand('stop', {});
   },
-  ios: () => {
+  ios: ({ animation_type, animated = 1 } = {}) => {
     NativeModules.ZPReactNativeBridgeListener.postEvent(
       'dismiss_modal_view',
-      { animated: 1 },
+      { animated, animation_type },
       () => {}
     );
   }
