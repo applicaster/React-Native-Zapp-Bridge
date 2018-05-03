@@ -20,7 +20,7 @@ const APReactVideoView = {
     src: PropTypes.shape({
       type: PropTypes.string,
       object: Platform.select({
-        android: Platform.string,
+        android: PropTypes.string,
         ios: PropTypes.shape({
           playerDetailsObject: PropTypes.shape({
             id: PropTypes.string,
