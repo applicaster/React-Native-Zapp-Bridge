@@ -74,12 +74,7 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
     },
   };
 
-  return (
-    streamUrl ?
-      <View>
-        <APVideoPlayer {...{ src, maxwidth, style }} />
-      </View>
-  );
+  return <APVideoPlayer {...{ src, maxwidth, style }} />;
 ```
 
 ### Data Source Plugin

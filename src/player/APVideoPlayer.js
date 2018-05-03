@@ -70,7 +70,21 @@ const APVideoPlayer = ({
 };
 
 APVideoPlayer.propTypes = {
-  src: PropTypes.object.isRequired,
+  src: PropTypes.shape({
+    type: PropTypes.string,
+    object: PropTypes.shape({
+      playerDetailsObject: PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        thumbnail_url: PropTypes.string,
+        stream_url: PropTypes.string
+      })
+    }),
+    player_configuration: PropTypes.shape({
+      inline_player_should_auto_mute: PropTypes.boolean
+    }),
+    startTime: PropTypes.string
+  }).isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
   style: PropTypes.object
