@@ -36,6 +36,7 @@ const APReactVideoView = {
       }),
       startTime: PropTypes.string
     }),
+    onChange: PropTypes.func,
     maxWidth: PropTypes.string,
     ...ViewPropTypes
   }
@@ -76,7 +77,7 @@ APVideoPlayer.propTypes = {
   }).isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
-  style: PropTypes.object
+  style: ViewPropTypes.style
 };
 
 APVideoPlayer.defaultProps = {
