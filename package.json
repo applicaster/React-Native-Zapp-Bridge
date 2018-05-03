@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "test":
-      "npm run test-platform-independent && npm run test-ios && npm run test-android",
+    "test": "npm run test-platform-independent && npm run test-ios && npm run test-android",
     "test-platform-independent": "jest",
     "test-ios": "jest --config test/config/jest.ios.json",
     "test-android": "jest --config test/config/jest.android.json",

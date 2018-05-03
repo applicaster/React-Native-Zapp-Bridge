@@ -61,31 +61,20 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
     backgroundColor: '#ffffff'
   }
   const maxWidth = 200;
-  let playerDetails = {
-    id: `your_item_id`,
-    name: `your_item_title`,
-    thumbnail_url: `your_item_image_url`
-    stream_url: streamUrl,
-  };
-  let playerConfiguration = {
-    inline_player_should_auto_mute: true,
-  };
-  if (Platform.OS === 'android') {
-    playerDetails = JSON.stringify(playerDetails);
-    playerConfiguration = JSON.stringify(playerConfiguration);
-  }
   const src = {
     type: Platform.OS === 'android' ? 'vod' : 'url',
-    object: playerDetails,
-    player_configuration: playerConfiguration,
+    object: {
+      id: `your_item_id`,
+      name: `your_item_title`,
+      thumbnail_url: `your_item_image_url`
+      stream_url: streamUrl,
+    },
+    player_configuration: {
+      inline_player_should_auto_mute: true,
+    },
   };
 
-  return (
-    streamUrl ?
-      <View>
-        <APVideoPlayer {...{ src, maxwidth, style }} />
-      <View />
-  );
+  return <APVideoPlayer {...{ src, maxwidth, style }} />;
 ```
 
 ### Data Source Plugin
