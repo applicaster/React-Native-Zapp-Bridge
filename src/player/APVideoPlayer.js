@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   requireNativeComponent,
-  View,
+  ViewPropTypes,
   StyleSheet,
   Platform
 } from 'react-native';
@@ -39,7 +39,7 @@ const APReactVideoView = {
       startTime: PropTypes.string
     }),
     maxWidth: PropTypes.string,
-    ...View.propTypes
+    ...ViewPropTypes
   }
 };
 
