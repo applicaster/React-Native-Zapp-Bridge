@@ -31,7 +31,7 @@ const APReactVideoView = {
         })
       }),
       player_configuration: Platform.select({
-        android: Platform.string,
+        android: PropTypes.string,
         ios: PropTypes.shape({
           inline_player_should_auto_mute: PropTypes.boolean
         })
