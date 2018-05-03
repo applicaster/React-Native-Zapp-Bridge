@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { requireNativeComponent, View, StyleSheet } from 'react-native';
+import {
+  requireNativeComponent,
+  View,
+  StyleSheet,
+  Platform
+} from 'react-native';
 import { getFrameDims } from '../utils/';
 
 const styles = StyleSheet.create({
@@ -14,9 +19,9 @@ const APReactVideoView = {
   propTypes: {
     src: PropTypes.shape({
       type: PropTypes.string,
-      object: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.shape({
+      object: Platform.select({
+        android: Platform.string,
+        ios: PropTypes.shape({
           playerDetailsObject: PropTypes.shape({
             id: PropTypes.string,
             name: PropTypes.string,
@@ -24,13 +29,13 @@ const APReactVideoView = {
             stream_url: PropTypes.string
           })
         })
-      ]),
-      player_configuration: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.shape({
+      }),
+      player_configuration: Platform.select({
+        android: Platform.string,
+        ios: PropTypes.shape({
           inline_player_should_auto_mute: PropTypes.boolean
         })
-      ]),
+      }),
       startTime: PropTypes.string
     }),
     maxWidth: PropTypes.string,
@@ -43,8 +48,24 @@ const ReactVideoView = requireNativeComponent(
   APReactVideoView
 );
 
-const APVideoPlayer = ({ src, maxWidth, ratio, style }) => {
+const APVideoPlayer = ({
+  src: { type, object, player_configuration, startTime },
+  maxWidth,
+  ratio,
+  style
+}) => {
   const dims = getFrameDims(maxWidth, ratio);
+
+  const src = {
+    type,
+    object: Platform.select({ android: JSON.stringify(object), ios: object }),
+    player_configuration: Platform.select({
+      android: JSON.stringify(player_configuration),
+      ios: player_configuration
+    }),
+    startTime
+  };
+
   return <ReactVideoView src={src} style={[dims, styles.video, style]} />;
 };
 

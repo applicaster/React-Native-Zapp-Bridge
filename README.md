@@ -70,10 +70,6 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
   let playerConfiguration = {
     inline_player_should_auto_mute: true,
   };
-  if (Platform.OS === 'android') {
-    playerDetails = JSON.stringify(playerDetails);
-    playerConfiguration = JSON.stringify(playerConfiguration);
-  }
   const src = {
     type: Platform.OS === 'android' ? 'vod' : 'url',
     object: playerDetails,
