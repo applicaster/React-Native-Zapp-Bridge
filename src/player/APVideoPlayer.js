@@ -8,10 +8,20 @@ import {
 } from 'react-native';
 import { getFrameDims } from '../utils/';
 
-const styles = StyleSheet.create({
-  video: {
-    backgroundColor: '#000000'
-  }
+const styles = StyleSheet.create({ video: { backgroundColor: '#000000' } });
+
+const objectPropType = Platform.select({
+  android: PropTypes.string,
+  ios: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    thumbnail_url: PropTypes.string,
+    stream_url: PropTypes.string
+  })
+});
+
+const playerConfigurationPropType = PropTypes.shape({
+  inline_player_should_auto_mute: PropTypes.boolean
 });
 
 const APReactVideoView = {
@@ -21,20 +31,11 @@ const APReactVideoView = {
       type: PropTypes.string,
       object: Platform.select({
         android: PropTypes.string,
-        ios: PropTypes.shape({
-          playerDetailsObject: PropTypes.shape({
-            id: PropTypes.string,
-            name: PropTypes.string,
-            thumbnail_url: PropTypes.string,
-            stream_url: PropTypes.string
-          })
-        })
+        ios: objectPropType
       }),
       player_configuration: Platform.select({
         android: PropTypes.string,
-        ios: PropTypes.shape({
-          inline_player_should_auto_mute: PropTypes.boolean
-        })
+        ios: playerConfigurationPropType
       }),
       startTime: PropTypes.string
     }),
@@ -72,17 +73,8 @@ const APVideoPlayer = ({
 APVideoPlayer.propTypes = {
   src: PropTypes.shape({
     type: PropTypes.string,
-    object: PropTypes.shape({
-      playerDetailsObject: PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string,
-        thumbnail_url: PropTypes.string,
-        stream_url: PropTypes.string
-      })
-    }),
-    player_configuration: PropTypes.shape({
-      inline_player_should_auto_mute: PropTypes.boolean
-    }),
+    object: objectPropType,
+    player_configuration: playerConfigurationPropType,
     startTime: PropTypes.string
   }).isRequired,
   maxWidth: PropTypes.number,
