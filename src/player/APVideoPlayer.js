@@ -10,14 +10,11 @@ import { getFrameDims } from '../utils/';
 
 const styles = StyleSheet.create({ video: { backgroundColor: '#000000' } });
 
-const objectPropType = Platform.select({
-  android: PropTypes.string,
-  ios: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    thumbnail_url: PropTypes.string,
-    stream_url: PropTypes.string
-  })
+const objectPropType = PropTypes.shape({
+  id: PropTypes.string,
+  name: PropTypes.string,
+  thumbnail_url: PropTypes.string,
+  stream_url: PropTypes.string
 });
 
 const playerConfigurationPropType = PropTypes.shape({
@@ -39,6 +36,7 @@ const APReactVideoView = {
       }),
       startTime: PropTypes.string
     }),
+    onChange: PropTypes.func,
     maxWidth: PropTypes.string,
     ...ViewPropTypes
   }
@@ -79,7 +77,7 @@ APVideoPlayer.propTypes = {
   }).isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
-  style: PropTypes.object
+  style: ViewPropTypes.style
 };
 
 APVideoPlayer.defaultProps = {
