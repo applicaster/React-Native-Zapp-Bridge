@@ -25,6 +25,7 @@ const APReactVideoView = {
   name: 'ReactVideoView',
   propTypes: {
     src: PropTypes.shape({
+      id: PropTypes.string,
       type: PropTypes.string,
       object: Platform.select({
         android: PropTypes.string,
