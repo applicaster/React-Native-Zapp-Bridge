@@ -25,7 +25,7 @@ const APReactVideoView = {
   name: 'ReactVideoView',
   propTypes: {
     src: PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.number,
       type: PropTypes.string,
       object: Platform.select({
         android: PropTypes.string,
@@ -49,7 +49,7 @@ const ReactVideoView = requireNativeComponent(
 );
 
 const APVideoPlayer = ({
-  src: { type, object, player_configuration, startTime },
+  src: { type, id, object, player_configuration, startTime },
   maxWidth,
   ratio,
   style
@@ -66,12 +66,17 @@ const APVideoPlayer = ({
     startTime
   };
 
+  if (typeof id !== 'undefined') {
+    src.id = parseInt(id, 10);
+  }
+
   return <ReactVideoView src={src} style={[dims, styles.video, style]} />;
 };
 
 APVideoPlayer.propTypes = {
   src: PropTypes.shape({
     type: PropTypes.string,
+    id: PropTypes.string,
     object: objectPropType,
     player_configuration: playerConfigurationPropType,
     startTime: PropTypes.string
