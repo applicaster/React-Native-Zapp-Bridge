@@ -20,6 +20,8 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 5.  **navigation** - An API for navigating within Zapp apps.
 
+6.  **withZapp** - A React Native HOC for parsing plugin making properties consistent across platforms.
+
 ## Installation
 
 `$ npm install --save applicaster/react-native-zapp-bridge`
@@ -211,6 +213,29 @@ extraParams available in iOS only
 
 ```
 reminders.openInternalURL(params, reactParams);
+```
+
+### withZapp
+
+1.  import:
+
+```javascript
+import { withZapp } from 'react-native-zapp-bridge';
+```
+
+2.  usage:
+
+```javascript
+// in the entry point to the plugin import the root of your app
+import App from './src/App';
+
+// Augment your app with Zapp for consistent props to be passed cross platform
+const AppWithZapp = withZapp(App);
+
+const RNRoot = props => <AppWithZapp {...props} />;
+
+// Module name
+AppRegistry.registerComponent('RNRoot', () => RNRoot);
 ```
 
 ## Contributing
