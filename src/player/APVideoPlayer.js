@@ -35,7 +35,8 @@ const APReactVideoView = {
         android: PropTypes.string,
         ios: playerConfigurationPropType
       }),
-      startTime: PropTypes.string
+      startTime: PropTypes.string,
+      model: PropTypes.string
     }),
     onChange: PropTypes.func,
     maxWidth: PropTypes.string,
@@ -49,7 +50,7 @@ const ReactVideoView = requireNativeComponent(
 );
 
 const APVideoPlayer = ({
-  src: { type, id, object, player_configuration, startTime },
+  src: { type, id, object, player_configuration, startTime, model },
   maxWidth,
   ratio,
   style
@@ -63,7 +64,8 @@ const APVideoPlayer = ({
       android: JSON.stringify(player_configuration),
       ios: player_configuration
     }),
-    startTime
+    startTime,
+    model
   };
 
   if (typeof id !== 'undefined') {
@@ -79,7 +81,8 @@ APVideoPlayer.propTypes = {
     id: PropTypes.string,
     object: objectPropType,
     player_configuration: playerConfigurationPropType,
-    startTime: PropTypes.string
+    startTime: PropTypes.string,
+    model: PropTypes.string
   }).isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
