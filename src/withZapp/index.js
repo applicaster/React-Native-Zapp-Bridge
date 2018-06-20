@@ -1,26 +1,34 @@
 import React from 'react';
 import { Platform } from 'react-native';
 
-const propsToParse = ['localization', 'settings', 'styles', 'extra_props'];
+const propParsers = {
+  localization: { android: JSON.parse },
+  settings: { android: JSON.parse },
+  styles: {
+    android: (val, props) =>
+      JSON.parse(val)[props.is_tablet ? 'tablet' : 'smartphone']
+  },
+  extra_props: { android: JSON.parse }
+};
+
+const propsParser = (props, platform) =>
+  Object.assign(
+    {},
+    ...Object.keys(props).map(key => ({
+      [key]:
+        propParsers[key] && propParsers[key][platform]
+          ? propParsers[key][platform](props[key], props)
+          : props[key]
+    }))
+  );
+
+export { propsParser };
 
 // withZap is a react native HOC to patch over platform differences between iOS & android
-export default WrappedComponent =>
-  Platform.select({
-    ios: () => WrappedComponent,
-    android: () => {
-      const ZappedComponent = props => (
-        <WrappedComponent
-          {...Object.assign(
-            {},
-            ...Object.keys(props).map(key => ({
-              [key]: propsToParse.includes(key)
-                ? JSON.parse(props[key])
-                : props[key]
-            }))
-          )}
-        />
-      );
+export default WrappedComponent => {
+  const ZappedComponent = props => (
+    <WrappedComponent {...propsParser(props, Platform.OS)} />
+  );
 
-      return ZappedComponent;
-    }
-  })();
+  return ZappedComponent;
+};
