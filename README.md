@@ -22,6 +22,8 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 6.  **withZapp** - A React Native HOC for parsing plugin making properties consistent across platforms.
 
+7.  **Zapp Plugin** - An API for getting information about plugin
+
 ## Installation
 
 `$ npm install --save applicaster/react-native-zapp-bridge`
@@ -236,6 +238,22 @@ const RNRoot = props => <AppWithZapp {...props} />;
 
 // Module name
 AppRegistry.registerComponent('RNRoot', () => RNRoot);
+```
+
+### Zapp Plugin
+
+1.  import:
+
+```javascript
+import { zappPlugin } from 'react-native-zapp-bridge';
+```
+
+2.  methods:
+
+```
+zappPlugin.getConfiguration(PLUGIN_IDENTIFIER).then(PLUGIN_CONFIGURATION => {
+    // success
+});
 ```
 
 ## Contributing
