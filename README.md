@@ -24,7 +24,7 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 7.  **navigation** - An API for navigating within Zapp apps.
 
-8.  **withZapp** - A React Native HOC for parsing plugin making properties consistent across platforms.
+8.  **withZapp** - A React Native HoC for parsing plugin properties making them consistent across platforms.
 
 9.  **Zapp Plugin** - An API for getting information about plugin
 
