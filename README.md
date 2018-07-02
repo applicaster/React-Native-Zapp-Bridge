@@ -14,15 +14,19 @@ React-Native-Zapp-Bridge is a util package that enable you to:
 
 2.  **Video Player** - use `APVideoPlayer` to add a video player to your React-Native screen, this will add the chosen pluggable player on the Zapp Platform.
 
-3.  **Data source plugin** - This class helps you to interact with the DS plugin. Use `DataSourceService` to make http request from DS plugin (DS plugin returns Atom model as result).
+3.  **Zapp login** - methods for logging in users and checking their login status
 
-4.  **reminders** - An API for adding, removing & checking status of program reminders.
+4.  **Data source plugin** - This class helps you to interact with the DS plugin. Use `DataSourceService` to make http request from DS plugin (DS plugin returns Atom model as result).
 
-5.  **navigation** - An API for navigating within Zapp apps.
+5.  **Zapp player** - methods for playing videos fullscreen
 
-6.  **withZapp** - A React Native HOC for parsing plugin making properties consistent across platforms.
+6.  **reminders** - An API for adding, removing & checking status of program reminders.
 
-7.  **Zapp Plugin** - An API for getting information about plugin
+7.  **navigation** - An API for navigating within Zapp apps.
+
+8.  **withZapp** - A React Native HoC for parsing plugin properties making them consistent across platforms.
+
+9.  **Zapp Plugin** - An API for getting information about plugin
 
 ## Installation
 
@@ -245,13 +249,14 @@ AppRegistry.registerComponent('RNRoot', () => RNRoot);
 1.  import:
 
 ```javascript
-import { zappPlugin } from 'react-native-zapp-bridge';
+import { NativeModules } from 'react-native';
+const { ZappPlugin } = NativeModules;
 ```
 
 2.  methods:
 
 ```
-zappPlugin.getConfiguration(PLUGIN_IDENTIFIER).then(PLUGIN_CONFIGURATION => {
+ZappPlugin.getConfiguration(PLUGIN_IDENTIFIER).then(PLUGIN_CONFIGURATION => {
     // success
 });
 ```
