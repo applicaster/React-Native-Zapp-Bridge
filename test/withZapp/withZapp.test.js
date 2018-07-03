@@ -29,7 +29,10 @@ describe('withZapp HOC', () => {
               tablet: { plat: 'tablet' },
               smartphone: { plat: 'smartphone' }
             }),
-            extra_props: JSON.stringify({})
+            extra_props: JSON.stringify({
+              foo: 'bar',
+              data_source_model: JSON.stringify({ double: 'stringified' })
+            })
           },
           'android'
         )
@@ -38,7 +41,10 @@ describe('withZapp HOC', () => {
         localization: {},
         settings: {},
         styles: { plat: 'smartphone' },
-        extra_props: {}
+        extra_props: {
+          foo: 'bar',
+          data_source_model: { double: 'stringified' }
+        }
       });
 
       expect(
@@ -72,7 +78,10 @@ describe('withZapp HOC', () => {
             localization: {},
             settings: {},
             styles: { plat: 'orig' },
-            extra_props: {}
+            extra_props: {
+              foo: 'bar',
+              data_source_model: { not: 'stringified' }
+            }
           },
           'ios'
         )
@@ -81,7 +90,10 @@ describe('withZapp HOC', () => {
         localization: {},
         settings: {},
         styles: { plat: 'orig' },
-        extra_props: {}
+        extra_props: {
+          foo: 'bar',
+          data_source_model: { not: 'stringified' }
+        }
       });
     });
   });

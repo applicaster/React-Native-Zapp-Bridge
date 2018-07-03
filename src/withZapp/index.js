@@ -8,7 +8,17 @@ const propParsers = {
     android: (val, props) =>
       JSON.parse(val)[props.is_tablet ? 'tablet' : 'smartphone']
   },
-  extra_props: { android: JSON.parse }
+  extra_props: {
+    android: val => {
+      const extraProps = JSON.parse(val);
+
+      if (extraProps.data_source_model) {
+        extraProps.data_source_model = JSON.parse(extraProps.data_source_model);
+      }
+
+      return extraProps;
+    }
+  }
 };
 
 const propsParser = (props, platform) =>
