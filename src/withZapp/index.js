@@ -12,7 +12,10 @@ const propParsers = {
     android: val => {
       const extraProps = JSON.parse(val);
 
-      if (extraProps.data_source_model) {
+      if (
+        extraProps.data_source_model &&
+        typeof extraProps.data_source_model === 'string'
+      ) {
         extraProps.data_source_model = JSON.parse(extraProps.data_source_model);
       }
 
