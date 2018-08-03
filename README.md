@@ -82,7 +82,16 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
     },
   };
 
-  return <APVideoPlayer {...{ src, maxwidth, style }} />;
+  // Example
+  const onChange = event => {
+    event.persist();
+
+    if (event.nativeEvent.eventName === 'onVideoEnd') {
+      this.playNextVideo()
+    }
+  };
+ 
+  return <APVideoPlayer {...{ src, maxwidth, style }} onChange={onChange}/>;
 ```
 
 ### Data Source Plugin
