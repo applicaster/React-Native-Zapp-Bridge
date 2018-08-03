@@ -74,12 +74,12 @@ const APVideoPlayer = ({
   }
 
   return (
-    <ReactVideoView 
-      src={src} 
-      style={[dims, styles.video, style]} 
+    <ReactVideoView
+      src={src}
+      style={[dims, styles.video, style]}
       onChange={onChange}
     />
-  );  
+  );
 };
 
 APVideoPlayer.propTypes = {
@@ -93,7 +93,8 @@ APVideoPlayer.propTypes = {
   }).isRequired,
   maxWidth: PropTypes.number,
   ratio: PropTypes.number,
-  style: ViewPropTypes.style
+  style: ViewPropTypes.style,
+  onChange: PropTypes.func,
 };
 
 APVideoPlayer.defaultProps = {
