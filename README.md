@@ -90,6 +90,15 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
       this.playNextVideo()
     }
   };
+
+  /*
+  List of events you can receive from onChange
+
+  onVideoEnd
+  playerRemoved
+  
+  */
+  
  
   return <APVideoPlayer {...{ src, maxwidth, style }} onChange={onChange}/>;
 ```
