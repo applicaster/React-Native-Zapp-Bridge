@@ -82,8 +82,40 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
     },
   };
 
-  return <APVideoPlayer {...{ src, maxwidth, style }} />;
+  // Example
+  const onChange = event => {
+    event.persist();
+
+    if (event.nativeEvent.eventName === 'onVideoEnd') {
+      this.playNextVideo()
+    }
+  };
+
+  /*
+  List of events you can receive from onChange
+
+  onVideoEnd
+  playerRemoved
+  
+  */
+  
+ 
+  return <APVideoPlayer {...{ src, maxwidth, style }} onChange={onChange}/>;
 ```
+
+3.  onChange callback prop
+
+The onchange callback occurs when a native event of the video has been changed,
+it returns an object with the event information.
+
+Support events
+
+| Native Event | Description |
+| ------ | ------ |
+| onVideoEnd | The ended event occurs when the video has reached the end. |
+| playerRemoved | The playerRemoved occurs when the player is unmounted. |
+
+
 
 ### Data Source Plugin
 
