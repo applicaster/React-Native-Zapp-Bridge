@@ -1,12 +1,9 @@
 import { Linking, NativeModules, Platform } from 'react-native';
 
-const buildQueryString = (params, unencoded) => {
-  const encodeMethod = unencoded ? str => str : encodeURIComponent;
-
-  return Object.keys(params)
-    .map(k => `${encodeMethod(k)}=${encodeMethod(params[k])}`)
+const buildQueryString = params =>
+  Object.keys(params)
+    .map(k => `${k}=${encodeURIComponent(params[k])}`)
     .join('&');
-};
 
 export const closeModalScreen = Platform.select({
   android: () => {
@@ -35,7 +32,7 @@ export const openInternalURL = (protocol, params, reactParams = {}) => {
   );
 
   // apparently android can't be url encoded!
-  const queryString = buildQueryString(mergedParams, Platform.OS === 'android');
+  const queryString = buildQueryString(mergedParams);
   const url = `${protocol}://presentRN?${queryString}`;
 
   Platform.select({
