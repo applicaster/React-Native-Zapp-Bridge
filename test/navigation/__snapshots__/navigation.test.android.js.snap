@@ -12,7 +12,7 @@ Array [
 exports[`navigation openInternalURL(params, reactParams = {}) will call native module with correct URL 1`] = `
 Array [
   Array [
-    "SOME_PROTOCOL://presentRN?bundle=SingleChannelEPG&plugin=SingleChannelEPG&presentation=presentNoNavigation&channelId=reactProps[channelId]&channelTitle=reactProps[channelTitle]",
+    "SOME_PROTOCOL://presentRN?bundle=SingleChannelEPG&plugin=SingleChannelEPG&presentation=presentNoNavigation&reactProps[channelId]=xxx&reactProps[channelTitle]=BBC 4",
   ],
 ]
 `;

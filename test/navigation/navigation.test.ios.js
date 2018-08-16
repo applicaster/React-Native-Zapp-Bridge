@@ -52,7 +52,10 @@ describe('utils', () => {
           plugin: 'SingleChannelEPG',
           presentation: 'presentNoNavigation'
         },
-        { channelId: 'xxx', channelTitle: 'BBC 4' }
+        {
+          channelId: 'xxx',
+          channelTitle: 'BBC 4'
+        }
       );
 
       expect(openURLMock.mock.calls).toMatchSnapshot();

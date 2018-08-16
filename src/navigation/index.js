@@ -27,7 +27,9 @@ export const openInternalURL = (protocol, params, reactParams = {}) => {
     params,
     Object.keys(reactParams).reduce(
       (accumulator, key) =>
-        Object.assign(accumulator, { [key]: `reactProps[${key}]` }),
+        Object.assign(accumulator, {
+          [`reactProps[${key}]`]: reactParams[key]
+        }),
       {}
     )
   );
