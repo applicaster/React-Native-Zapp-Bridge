@@ -165,6 +165,32 @@ Returns:
 Promise - resolves:
 `{ isUserLoggedIn: bool }`
 
+4.  get user token
+
+```javascript
+NativeModules.ZappLogin.getUserToken();
+```
+
+Returns:
+Promise - resolves:
+`{ token: string }`
+
+5.  check if user is authorized.
+
+Unlike the login check - this can be used to check if user is authorized to play some content or check entitlements beyond just the login itself.
+
+```javascript
+NativeModules.ZappLogin.isUserAuthorized(additionalParams);
+```
+
+parameters:
+`additionalParams: Object` - can be empty. This parameter is being delieved as the additionalParams to the native authorization check method. So any values in this object will be available to the receiver login plugin.
+
+Returns:
+Promise - resolves:
+`{ authorized: bool }`
+
+
 ### Zapp player
 
 1.  import:
