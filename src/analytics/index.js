@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { prop, assoc, __ } from 'ramda';
 import { postEvent } from './analytics';
 
@@ -12,7 +13,7 @@ const guid = () => `${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}`;
 export const sendAnalyticEvent = (
   key,
   properties = {},
-  shouldStringifyValue = true
+  shouldStringifyValue = Platform.select({ android: false, ios: true })
 ) => {
   /* eslint no-console: 0 */
   let event = {
