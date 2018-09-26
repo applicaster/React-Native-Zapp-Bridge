@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { prop, assoc, __ } from 'ramda';
 import { postEvent } from './analytics';
 
@@ -12,25 +13,22 @@ const guid = () => `${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}-${s4()}`;
 export const sendAnalyticEvent = (
   key,
   properties = {},
-  shouldStringifyValue = true
+  shouldStringifyValue = Platform.select({ android: false, ios: true })
 ) => {
-  /* eslint no-console: 0 */
-  let event = {
+  const event = {
     key,
     properties,
     id: properties.uuid || guid(),
     timestamp: Math.floor(Date.now() / 1000)
   };
-  if (shouldStringifyValue) {
-    event = JSON.stringify(event);
-  }
+
   const options = {
-    event
+    event: shouldStringifyValue ? JSON.stringify(event) : event
   };
 
   return getIp()
     .then(prop('ip'))
     .then(assoc('ip', __, options))
     .then(postEvent('MorpheusEvent'))
-    .catch(console.warn);
+    .catch(console.warn); // eslint-disable-line no-console
 };
