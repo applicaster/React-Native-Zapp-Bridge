@@ -251,6 +251,7 @@ reminders.checkReminders(PROGRAM_ID_STR_ARR).then(RESULT_OBJ => {
 });
 ```
 
+
 ### Navigation
 
 1.  import:
@@ -261,22 +262,34 @@ import { navigation } from 'react-native-zapp-bridge';
 
 2.  methods:
 
-```javascript
-navigation.closeModalScreen(extraParams);
-```
+**closeModalScreen**
 
 extraParams available in iOS only
 
-* @type {('push'| string)} animation_type - Allowed animation types\*\*
+* @type {('push' string)} animation_type - Allowed animation types\*\*
 * @param {object} [extraParams = {} ] - An extra params.
 * @param {bool\*} [extraParams.animated = 1] - If close action should be animated.
-* @param {string} [extraParams.animation_type = undefined] - The employee's department.
+* @param {string} [extraParams.animation_type = undefined] - Close animation typr.
 
 \* bool in this scope represents `0` or `1`;  
 \*\* \`push\` present push close animation, any other string uses modal animation.
 
+```javascript
+navigation.closeModalScreen(extraParams);
 ```
-reminders.openInternalURL(params, reactParams);
+
+
+**openInternalURL**
+
+ @param {string} urlscheme - UrlScheme for your app
+ @param {Object} params - configuration params this will be appended to the url as an arguments;
+ @param {('present'|'push'|'presentNoNavigation'|'pushNoNavigation'|'asAChild')} params.presentation - How screen should be presented.
+* @param {string} params.plugin - Plugin name (name fild from the manifest)
+* @param {string} params.bundle - s3 folder name /react-native-bundles/yourName/Rn_version.
+* @param {any} reactProps[nameofTheProp] - this will be injected to the RN instance inside `props.extra_props`
+...
+```
+navigation.openInternalURL(urlscheme, params);
 ```
 
 ### withZapp
