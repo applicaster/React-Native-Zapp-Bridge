@@ -281,9 +281,9 @@ navigation.closeModalScreen(extraParams);
 
 **openInternalURL**
 
- @param {string} urlscheme - UrlScheme for your app
- @param {Object} params - configuration params this will be appended to the url as an arguments;
- @param {('present'|'push'|'presentNoNavigation'|'pushNoNavigation'|'asAChild')} params.presentation - How screen should be presented.
+ * @param {string} urlscheme - UrlScheme for your app
+ * @param {Object} params - configuration params this will be appended to the url as an arguments;
+ * @param {('present'|'push'|'presentNoNavigation'|'pushNoNavigation'|'asAChild')} params.presentation - How screen should be presented.
 * @param {string} params.plugin - Plugin name (name fild from the manifest)
 * @param {string} params.bundle - s3 folder name /react-native-bundles/yourName/Rn_version.
 * @param {any} reactProps[nameofTheProp] - this will be injected to the RN instance inside `props.extra_props`
