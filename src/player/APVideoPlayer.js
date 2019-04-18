@@ -39,6 +39,7 @@ const APReactVideoView = {
       model: PropTypes.string
     }),
     onChange: PropTypes.func,
+    shouldUnmount: PropTypes.bool,
     maxWidth: PropTypes.string,
     ...ViewPropTypes
   }
@@ -54,7 +55,8 @@ const APVideoPlayer = ({
   maxWidth,
   ratio,
   style,
-  onChange
+  onChange,
+  shouldUnmount,
 }) => {
   const dims = getFrameDims(maxWidth, ratio);
 
@@ -77,6 +79,7 @@ const APVideoPlayer = ({
     <ReactVideoView
       src={src}
       style={[dims, styles.video, style]}
+      shouldUnmount={shouldUnmount}
       onChange={onChange}
     />
   );
@@ -95,11 +98,13 @@ APVideoPlayer.propTypes = {
   ratio: PropTypes.number,
   style: ViewPropTypes.style,
   onChange: PropTypes.func,
+  shouldUnmount: PropTypes.bool,
 };
 
 APVideoPlayer.defaultProps = {
   maxWidth: null,
-  ratio: 9 / 16
+  ratio: 9 / 16,
+  shouldUnmount: false
 };
 
 export default APVideoPlayer;
