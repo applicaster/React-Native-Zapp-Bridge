@@ -6,6 +6,23 @@
 
 A React Native package that includes bridging from React Native to [Applicaster](http://www.applicaster.com) Zapp Platform native framework.
 
+# Please Read before you contribute
+
+Commit messages are strictly enforced in this pattern:
+
+```
+type(scope?): subject
+body?
+footer?
+```
+
+Types can be one of the following:
+\[build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test\]\[type-enum\]
+
+## Continuous deployment
+
+Deployment is automated by [Semantic Release](https://github.com/semantic-release/semantic-release). When PRs are merged to `master` Semantic Release will analyse the commit log, increment version, tag a release and publish directly to public NPM.
+
 ## Features
 
 React-Native-Zapp-Bridge is a util package that enable you to:
@@ -96,10 +113,10 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
 
   onVideoEnd
   playerRemoved
-  
+
   */
-  
- 
+
+
   return <APVideoPlayer {...{ src, maxwidth, style }} onChange={onChange}/>;
 ```
 
@@ -110,12 +127,10 @@ it returns an object with the event information.
 
 Support events
 
-| Native Event | Description |
-| ------ | ------ |
-| onVideoEnd | The ended event occurs when the video has reached the end. |
-| playerRemoved | The playerRemoved occurs when the player is unmounted. |
-
-
+| Native Event  | Description                                                |
+| ------------- | ---------------------------------------------------------- |
+| onVideoEnd    | The ended event occurs when the video has reached the end. |
+| playerRemoved | The playerRemoved occurs when the player is unmounted.     |
 
 ### Data Source Plugin
 
@@ -190,7 +205,6 @@ Returns:
 Promise - resolves:
 `{ authorized: bool }`
 
-
 ### Zapp player
 
 1.  import:
@@ -212,7 +226,7 @@ parameters:
 
 Supported values for `configuration` keys:
 
-* `configuration['custom_configuration']` - This value is being delivered to the player plug as the player configuration dictionary.
+- `configuration['custom_configuration']` - This value is being delivered to the player plug as the player configuration dictionary.
 
 Returns:
 Promise - resolves:
@@ -251,7 +265,6 @@ reminders.checkReminders(PROGRAM_ID_STR_ARR).then(RESULT_OBJ => {
 });
 ```
 
-
 ### Navigation
 
 1.  import:
@@ -266,10 +279,10 @@ import { navigation } from 'react-native-zapp-bridge';
 
 extraParams available in iOS only
 
-* @type {('push' string)} animation_type - Allowed animation types\*\*
-* @param {object} [extraParams = {} ] - An extra params.
-* @param {bool\*} [extraParams.animated = 1] - If close action should be animated.
-* @param {string} [extraParams.animation_type = undefined] - Close animation typr.
+- @type {('push' string)} animation_type - Allowed animation types\*\*
+- @param {object} [extraParams = {} ] - An extra params.
+- @param {bool\*} [extraParams.animated = 1] - If close action should be animated.
+- @param {string} [extraParams.animation_type = undefined] - Close animation typr.
 
 \* bool in this scope represents `0` or `1`;  
 \*\* \`push\` present push close animation, any other string uses modal animation.
@@ -278,16 +291,16 @@ extraParams available in iOS only
 navigation.closeModalScreen(extraParams);
 ```
 
-
 **openInternalURL**
 
- * @param {string} urlscheme - UrlScheme for your app
- * @param {Object} params - configuration params this will be appended to the url as an arguments;
- * @param {('present'|'push'|'presentNoNavigation'|'pushNoNavigation'|'asAChild')} params.presentation - How screen should be presented.
-* @param {string} params.plugin - Plugin name (name fild from the manifest)
-* @param {string} params.bundle - s3 folder name /react-native-bundles/yourName/Rn_version.
-* @param {any} reactProps[nameofTheProp] - this will be injected to the RN instance inside `props.extra_props`
-...
+- @param {string} urlscheme - UrlScheme for your app
+- @param {Object} params - configuration params this will be appended to the url as an arguments;
+- @param {('present'|'push'|'presentNoNavigation'|'pushNoNavigation'|'asAChild')} params.presentation - How screen should be presented.
+- @param {string} params.plugin - Plugin name (name fild from the manifest)
+- @param {string} params.bundle - s3 folder name /react-native-bundles/yourName/Rn_version.
+- @param {any} reactProps[nameofTheProp] - this will be injected to the RN instance inside `props.extra_props`
+  ...
+
 ```
 navigation.openInternalURL(urlscheme, params);
 ```
@@ -331,20 +344,3 @@ ZappPlugin.getConfiguration(PLUGIN_IDENTIFIER).then(PLUGIN_CONFIGURATION => {
     // success
 });
 ```
-
-## Contributing
-
-Commit messages are strictly enforced in this pattern:
-
-```
-type(scope?): subject
-body?
-footer?
-```
-
-Types can be one of the following:
-\[build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test\]\[type-enum\]
-
-## Continuous deployment
-
-Deployment is automated by [Semantic Release](https://github.com/semantic-release/semantic-release). When PRs are merged to `master` Semantic Release will analyse the commit log, increment version, tag a release and publish directly to public NPM.
