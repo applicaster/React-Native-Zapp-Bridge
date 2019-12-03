@@ -20,11 +20,3 @@ Array [
   ],
 ]
 `;
-
-exports[`utils openInternalURL(params, reactParams = {}) will call native module with empty props 1`] = `
-Array [
-  Array [
-    "SOME_PROTOCOL",
-  ],
-]
-`;

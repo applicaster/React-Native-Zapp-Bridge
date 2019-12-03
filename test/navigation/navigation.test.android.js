@@ -47,8 +47,7 @@ describe('navigation', () => {
 
     it('will call native module with empty props', () => {
       openInternalURL('SOME_PROTOCOL');
-
-      expect(openInternalURLMock.mock.calls).toMatchSnapshot();
+      expect(openInternalURLMock).toHaveBeenCalledWith('SOME_PROTOCOL');
     });
   });
 });

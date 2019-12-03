@@ -63,8 +63,7 @@ describe('utils', () => {
 
     it('will call native module with empty props', () => {
       openInternalURL('SOME_PROTOCOL');
-
-      expect(openURLMock.mock.calls).toMatchSnapshot();
+      expect(openURLMock).toHaveBeenCalledWith('SOME_PROTOCOL');
     });
   });
 });
