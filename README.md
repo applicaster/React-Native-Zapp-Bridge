@@ -91,7 +91,7 @@ import { APVideoPlayer } from 'react-native-zapp-bridge';
     object: {
       id: `your_item_id`,
       name: `your_item_title`,
-      thumbnail_url: `your_item_image_url`
+      thumbnail_url: `your_item_image_url`,
       stream_url: streamUrl,
     },
     player_configuration: {
@@ -146,7 +146,7 @@ import { ZappPipesService } from 'react-native-zapp-bridge';
 ZappPipesService.getDataSourceData(`Url To Load From DS Plugin`)
     .then(content)
     .catch(error);
-}
+
 ```
 
 ### Zapp login
@@ -295,6 +295,7 @@ navigation.closeModalScreen(extraParams);
 
 - @param {string} urlscheme - UrlScheme for your app
 - @param {Object} params - configuration params this will be appended to the url as an arguments;
+- @param {Object} params - it's not necessary option if params get from url schema;
 - @param {('present'|'push'|'presentNoNavigation'|'pushNoNavigation'|'asAChild')} params.presentation - How screen should be presented.
 - @param {string} params.plugin - Plugin name (name fild from the manifest)
 - @param {string} params.bundle - s3 folder name /react-native-bundles/yourName/Rn_version.
@@ -303,6 +304,8 @@ navigation.closeModalScreen(extraParams);
 
 ```
 navigation.openInternalURL(urlscheme, params);
+or 
+navigation.openInternalURL(urlscheme);
 ```
 
 ### withZapp
