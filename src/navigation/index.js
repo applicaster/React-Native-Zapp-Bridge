@@ -33,7 +33,7 @@ export const openInternalURL = (protocol, params, reactParams = {}) => {
 
   // apparently android can't be url encoded!
   const queryString = buildQueryString(mergedParams);
-  const url = `${protocol}`;
+  const url = queryString ? `${protocol}://presentRN?${queryString}` : `${protocol}`;
 
   Platform.select({
     android: () => {
